@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% if title %}
-        <title>Flask Blog - {{ title }}</title>
-    {% else %}
-        <title>Flask Blog</title>
-    {% endif %}
-</head>
-<body>
-    <!--Jinja: https://palletsprojects.com/p/jinja/-->
+<!-- Jinja: https://palletsprojects.com/p/jinja/ -->
+{% extends "layout.html" %}
+{% block content %}
     {% for post in posts %}
         <h1>{{ post.title}}</h1>
         <p>By {{ post.author }} on {{ post.date_posted}}</p>
         <p>{{ post.content}}</p>
     {% endfor %}
-</body>
-</html>
+<!-- Explicitly show which block ends -->
+{% endblock content%}
